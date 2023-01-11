@@ -52,15 +52,12 @@ const firebaseConfig = {
 
     const quertSanpShot = await getDocs(q);
 
-    const categoryMap = quertSanpShot.docs.reduce((acc, docSnapShot) => {
+    return quertSanpShot.docs.map(docSnapShot => docSnapShot.data());
+    // const categoryMap = quertSanpShot.docs
+    
 
-      const { title, items } = docSnapShot.data();
-      acc[title.toLowerCase()] = items;
-      return acc;
 
-    }, {});
-
-    return categoryMap;
+    // return categoryMap;
   };
 
   export const createUserDocumentFromAuth = async(userAuth, additionalInformation = {}) => {
