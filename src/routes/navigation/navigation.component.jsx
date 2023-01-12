@@ -9,11 +9,13 @@ import { signOutUser } from '../../utils/firebase/firbase.utils';
 import CartIcon from '../../components/cart-icon/cart-icon.components';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
 import { selectCurrentUser } from '../../store/user/user.selector';
+import { selectIsCartOpen } from '../../store/cart/cart.selector';
 
 const Navigation = () => {
     // const { currentUser } = useContext(UserContext);
     const currentUser  = useSelector(selectCurrentUser);
-    const { isCartOpen } = useContext(CartContext);
+    // const { isCartOpen } = useContext(CartContext);
+    const isCartOpen = useSelector(selectIsCartOpen);
     
     return (
         <Fragment>
